@@ -1,0 +1,13 @@
+{
+  "name": "reactify-your-svg-icons",
+  "version": "0.0.1",
+  "description": "SVG -> JSX conversion script, specifically for icons",
+  "main": "index.js",
+  "repository": "https://github.com/sam-drew/reactify-your-svg-icons.git",
+  "author": "Sam Drew <sam-drew@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "yargs": "^17.2.1"
+  }
+}
