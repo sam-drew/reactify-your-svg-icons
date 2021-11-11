@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs")
 const yargs = require('yargs');
 
@@ -41,6 +42,8 @@ if (argv.input && argv.output) {
                 file_string = file_string.replace(/(?!fill="none")(fill="[#a-zA-Z0-9]*")/g, "fill={props.color}");
                 // Replace all instances of stroke
                 file_string = file_string.replace(/(stroke="[#a-zA-Z0-9]*")/g, "stroke={props.color}");
+                // Swap stroke-width to strokeWidth (camel case)
+                file_string = file_string.replace(/stroke-width/g, "strokeWidth");
 
                 let output_string = `import * as React from "react";\n\nfunction Icon(props) {\n\treturn (\n\t\t${file_string}\n\t);\n}\n\nexport default Icon;`;
 
@@ -49,7 +52,7 @@ if (argv.input && argv.output) {
                        return console.error(err);
                     }
 
-                    console.log(`All done :)\n\nFiles available in ${argv.output}`)
+                    console.log(`${file} done :)`)
                 })
             });
         });
